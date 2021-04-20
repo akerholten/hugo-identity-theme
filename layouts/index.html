@@ -22,7 +22,9 @@
         <!-- Main -->
           <section id="main">
             <header>
-              <span class="avatar"><img src="{{ .Site.Params.personal.avatar | printf "/images/avatars/%s" | relURL  }}" alt="avatar" height="130" width="130" ></span>
+              <container height="200" width="500" display="flex">
+                <div class="img"><img src="{{ .Site.Params.personal.avatar | printf "/images/avatars/%s" | relURL  }}" alt="img" height="75%" width="75%" display="flex" justify-content="center"></div>
+              </container>
               <h1 class="name">
                 {{ with .Site.Params.personal.name }}
                   {{ . }}
@@ -41,14 +43,17 @@
               {{ with .Site.Params.personal.scope }}
               <ul>
                 {{ range . }}
-                  <li>{{ . | markdownify }}</li>
+                  <h3>{{ . | markdownify }}</li>
                 {{ end }}
               </ul>
               {{ end }}
 
               {{ with .Site.Params.personal.biography }}
-                <span class="biography">{{ . | markdownify }}</span>
+                <p>{{ . | markdownify }}</p>
               {{ end }}
+              <container height="50" width="50" display="flex">
+                <div class="img"><img src="{{ .Site.Params.personal.studentBedriftImage | printf "/images/avatars/%s" | relURL  }}" alt="img" width="30%" height="30%" display="flex" justify-content="center"></div>
+              </container>
             </header>
 
             <footer>

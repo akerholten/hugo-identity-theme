@@ -1,6 +1,6 @@
-@import '../libs/vars';
-@import '../libs/functions';
-@import '../libs/mixins';
+@import "../libs/vars";
+@import "../libs/functions";
+@import "../libs/mixins";
 
 ///
 /// Identity by HTML5 UP
@@ -10,122 +10,136 @@
 
 /* Type */
 
-	body, input, select, textarea {
-		color: _palette(fg);
-		font-family: _font(family);
-		font-size: 14pt;
-		font-weight: _font(weight);
-		line-height: 2;
-		letter-spacing: _size(letter-spacing);
+body,
+input,
+select,
+textarea {
+  color: _palette(fg);
+  font-family: _font(family);
+  font-size: 14pt;
+  font-weight: _font(weight);
+  line-height: 2;
+  letter-spacing: _size(letter-spacing);
 
-		@include breakpoint(xlarge) {
-			font-size: 11pt;
-		}
+  @include breakpoint(xlarge) {
+    font-size: 11pt;
+  }
 
-		@include breakpoint(xsmall) {
-			font-size: 10pt;
-			line-height: 1.75;
-		}
-	}
+  @include breakpoint(xsmall) {
+    font-size: 10pt;
+    line-height: 1.75;
+  }
+}
 
+a {
+  @include vendor(
+    "transition",
+    (
+      "color #{_duration(transition)} ease",
+      "border-color #{_duration(transition)} ease"
+    )
+  );
+  color: inherit;
+  text-decoration: none;
 
+  &:before {
+    @include vendor(
+      "transition",
+      (
+        "color #{_duration(transition)} ease",
+        "text-shadow #{_duration(transition)} ease"
+      )
+    );
+  }
 
-	a {
-		@include vendor('transition', (
-			'color #{_duration(transition)} ease',
-			'border-color #{_duration(transition)} ease'
-		));
-		color: inherit;
-		text-decoration: none;
+  &:hover {
+    color: _palette(highlight);
+    text-decoration: underline;
+  }
+}
 
-		&:before {
-			@include vendor('transition', (
-				'color #{_duration(transition)} ease',
-				'text-shadow #{_duration(transition)} ease'
-			));
-		}
+strong,
+b {
+  color: _palette(fg-bold);
+}
 
-		&:hover {
-			color: _palette(highlight);
-			text-decoration: underline
-		}
-	}
+em,
+i {
+  font-style: italic;
+}
 
-	strong, b {
-		color: _palette(fg-bold);
-	}
+p {
+  margin: 0 0 _size(element-margin) 0;
+}
 
-	em, i {
-		font-style: italic;
-	}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: _palette(fg-bold);
+  line-height: 1.5;
+  margin: 0 0 (_size(element-margin) * 0.5) 0;
 
-	p {
-		margin: 0 0 _size(element-margin) 0;
-	}
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
 
-	h1, h2, h3, h4, h5, h6 {
-		color: _palette(fg-bold);
-		line-height: 1.5;
-		margin: 0 0 (_size(element-margin) * 0.5) 0;
+h1 {
+  font-size: 1.85em;
+  letter-spacing: (_size(letter-spacing) * 1.1);
+  margin: 0 0 (_size(element-margin) * 0.35) 0;
 
-		a {
-			color: inherit;
-			text-decoration: none;
-		}
-	}
+  &.name {
+    text-transform: uppercase;
+  }
+}
 
-	h1 {
-		font-size: 1.85em;
-		letter-spacing: (_size(letter-spacing) * 1.1);
-		margin: 0 0 (_size(element-margin) * 0.35) 0;
+h2 {
+  font-size: 1.5em;
+}
 
-		&.name {
-			text-transform: uppercase;
-		}
-	}
+h3 {
+  font-size: 1.25em;
+}
 
-	h2 {
-		font-size: 1.5em;
-	}
+h4 {
+  font-size: 1em;
+}
 
-	h3 {
-		font-size: 1.25em;
-	}
+h5,
+li {
+  font-size: 0.85em;
+}
 
-	h4 {
-		font-size: 1em;
-	}
+h6,
+.biography {
+  font-size: 0.7em;
+}
 
-	h5, li {
-		font-size: 0.85em;
-	}
+@include breakpoint(xsmall) {
+  h1 {
+    font-size: 1.65em;
+  }
+}
 
-	h6, .biography {
-		font-size: 0.7em;
-	}
+sub {
+  font-size: 0.8em;
+  position: relative;
+  top: 0.5em;
+}
 
+sup {
+  font-size: 0.8em;
+  position: relative;
+  top: -0.5em;
+}
 
-
-	@include breakpoint(xsmall) {
-		h1 {
-			font-size: 1.65em;
-		}
-	}
-
-	sub {
-		font-size: 0.8em;
-		position: relative;
-		top: 0.5em;
-	}
-
-	sup {
-		font-size: 0.8em;
-		position: relative;
-		top: -0.5em;
-	}
-
-	hr {
-		border: 0;
-		border-bottom: solid _size(border-width) _palette(border);
-		margin: _size(element-margin) 0;
-	}
+hr {
+  border: 0;
+  border-bottom: solid _size(border-width) _palette(border);
+  margin: _size(element-margin) 0;
+}
